@@ -36,6 +36,8 @@ pipeline {
             echo "DOCKERHUB_USERNAME: ${env.DOCKERHUB_USERNAME}"
             echo "DOCKERHUB_PASSWORD: ${env.DOCKERHUB_PASSWORD}"
             bat "echo %DOCKERHUB_PASSWORD% | docker login -u %DOCKERHUB_USERNAME% --password-stdin"
+            echo "DOCKERHUB_PASSWORD: ${env.DOCKERHUB_PASSWORD}"  // This will print the password in the logs (only for debugging purposes!)
+
         }
     }
 }
