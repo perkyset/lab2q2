@@ -24,6 +24,12 @@ pipeline {
             }
         }
 
+        stage('Check Docker') {
+            steps {
+                bat 'docker --version'
+            }
+        }
+
         stage('Docker Login') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
